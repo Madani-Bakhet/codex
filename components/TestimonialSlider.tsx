@@ -3,26 +3,29 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
-
-const testimonials = [
-  {
-    quote: "Codex completely transformed our digital presence. The new web app is incredibly fast and our conversion rates have doubled.",
-    author: "Jane Doe",
-    role: "CEO, TechStart",
-  },
-  {
-    quote: "Working with Codex was a breeze. They handled everything from design to deployment with extreme professionalism.",
-    author: "John Smith",
-    role: "CTO, Enterprise Solutions",
-  },
-  {
-    quote: "The mobile app they delivered is stunning. The UI is flawless and it performs perfectly across all devices.",
-    author: "Sarah Connor",
-    role: "Product Manager, Innovate AI",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 export function TestimonialSlider() {
+  const { t } = useTranslation();
+
+  const testimonials = [
+    {
+      quote: t("testimonials.quotes.quote1"),
+      author: t("testimonials.quotes.author1"),
+      role: t("testimonials.quotes.role1"),
+    },
+    {
+      quote: t("testimonials.quotes.quote2"),
+      author: t("testimonials.quotes.author2"),
+      role: t("testimonials.quotes.role2"),
+    },
+    {
+      quote: t("testimonials.quotes.quote3"),
+      author: t("testimonials.quotes.author3"),
+      role: t("testimonials.quotes.role3"),
+    },
+  ];
+
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const next = () => setCurrentIndex((prev) => (prev + 1) % testimonials.length);

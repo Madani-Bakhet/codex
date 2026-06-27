@@ -2,29 +2,32 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight, Code, Smartphone, Database } from "lucide-react";
-
-const projects = [
-  {
-    title: "FinTech Dashboard",
-    category: "Web Application",
-    description: "A comprehensive analytics dashboard for a leading financial institution.",
-    icon: <Database className="w-12 h-12 mb-4 text-primary" />,
-  },
-  {
-    title: "Health Tracker Pro",
-    category: "Mobile App",
-    description: "A cross-platform mobile application for personalized health tracking.",
-    icon: <Smartphone className="w-12 h-12 mb-4 text-secondary" />,
-  },
-  {
-    title: "E-Commerce Platform",
-    category: "Full Stack",
-    description: "A high-conversion headless e-commerce solution built with Next.js.",
-    icon: <Code className="w-12 h-12 mb-4 text-primary" />,
-  },
-];
+import { useTranslation } from "react-i18next";
 
 export function PortfolioGrid() {
+  const { t } = useTranslation();
+
+  const projects = [
+    {
+      title: t("portfolio.projects.proj1_title"),
+      category: t("portfolio.projects.proj1_cat"),
+      description: t("portfolio.projects.proj1_desc"),
+      icon: <Database className="w-12 h-12 mb-4 text-primary" />,
+    },
+    {
+      title: t("portfolio.projects.proj2_title"),
+      category: t("portfolio.projects.proj2_cat"),
+      description: t("portfolio.projects.proj2_desc"),
+      icon: <Smartphone className="w-12 h-12 mb-4 text-secondary" />,
+    },
+    {
+      title: t("portfolio.projects.proj3_title"),
+      category: t("portfolio.projects.proj3_cat"),
+      description: t("portfolio.projects.proj3_desc"),
+      icon: <Code className="w-12 h-12 mb-4 text-primary" />,
+    },
+  ];
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {projects.map((project, index) => (

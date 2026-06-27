@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { ThemeToggle } from "./ui/ThemeToggle";
+import { LanguageSwitcher } from "./ui/LanguageSwitcher";
+import { useTranslation } from "react-i18next";
 import { Code2, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "./ui/Button";
@@ -10,12 +12,14 @@ export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
+  const { t } = useTranslation();
+
   const navLinks = [
-    { href: "#home", label: "Home" },
-    { href: "#services", label: "Services" },
-    { href: "#portfolio", label: "Portfolio" },
-    { href: "#about", label: "About" },
-    { href: "#faq", label: "FAQ" },
+    { href: "#home", label: t("nav.home", "Home") },
+    { href: "#services", label: t("nav.services", "Services") },
+    { href: "#portfolio", label: t("nav.work", "Portfolio") },
+    { href: "#about", label: t("nav.about", "About") },
+    { href: "#faq", label: t("nav.faq", "FAQ") },
   ];
 
   // Optional: Add scroll spy logic to update activeSection based on scroll position
@@ -75,13 +79,15 @@ export function Navbar() {
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
+          <LanguageSwitcher />
           <ThemeToggle />
           <a href="#contact" onClick={(e) => handleScrollTo(e, "#contact")}>
-            <Button variant="primary" glow>Get Started</Button>
+            <Button variant="primary" glow>{t("nav.start_project", "Get Started")}</Button>
           </a>
         </div>
 
-        <div className="md:hidden flex items-center gap-4">
+        <div className="md:hidden flex items-center gap-2">
+          <LanguageSwitcher />
           <ThemeToggle />
           <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -104,7 +110,7 @@ export function Navbar() {
             </a>
           ))}
           <a href="#contact" onClick={(e) => handleScrollTo(e, "#contact")} className="mt-2 block w-full">
-            <Button variant="primary" glow className="w-full">Get Started</Button>
+            <Button variant="primary" glow className="w-full">{t("nav.start_project", "Get Started")}</Button>
           </a>
         </div>
       )}

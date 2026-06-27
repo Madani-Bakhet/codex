@@ -1,0 +1,113 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "work": "Portfolio",
+    "about": "About",
+    "faq": "FAQ",
+    "start_project": "Get Started"
+  },
+  "hero": {
+    "title1": "Building the",
+    "title2": "Future of Software",
+    "subtitle": "We are a premium software development agency providing top-tier solutions from ideation to deployment.",
+    "explore": "Explore Our Services",
+    "lets_talk": "Let's Talk"
+  },
+  "stats": {
+    "projects": "Projects Delivered",
+    "satisfaction": "Client Satisfaction",
+    "support": "Support Available"
+  },
+  "marquee": {
+    "title": "Powered By Modern Technology"
+  },
+  "services": {
+    "title": "Comprehensive Solutions",
+    "subtitle": "We handle every aspect of the software development lifecycle, delivering robust and scalable software.",
+    "items": {
+      "web_title": "Web Development",
+      "web_desc": "High-performance web applications built with modern frameworks like Next.js and React.",
+      "mobile_title": "Mobile Development",
+      "mobile_desc": "Native and cross-platform mobile experiences that engage and convert users.",
+      "sdlc_title": "SDLC & DevOps",
+      "sdlc_desc": "End-to-end lifecycle management, from ideation to continuous deployment and maintenance."
+    }
+  },
+  "process": {
+    "title": "Our Process",
+    "subtitle": "A transparent, agile methodology designed to deliver value quickly while minimizing risk.",
+    "steps": {
+      "step1_title": "Discovery & Planning",
+      "step1_desc": "We analyze your requirements and map out the project scope, timelines, and technical architecture.",
+      "step2_title": "UI/UX Design",
+      "step2_desc": "Our designers craft intuitive, stunning interfaces that align perfectly with your brand identity.",
+      "step3_title": "Development",
+      "step3_desc": "Our engineers build your product using cutting-edge technologies with a focus on scalability and performance.",
+      "step4_title": "Testing & Launch",
+      "step4_desc": "Rigorous QA testing ensures a bug-free experience before we successfully deploy to production."
+    }
+  },
+  "portfolio": {
+    "title": "Featured Work",
+    "subtitle": "Explore some of the innovative solutions we've crafted for our partners.",
+    "projects": {
+      "proj1_title": "FinTech Dashboard",
+      "proj1_cat": "Web Application",
+      "proj1_desc": "A comprehensive analytics dashboard for a leading financial institution.",
+      "proj2_title": "Health Tracker Pro",
+      "proj2_cat": "Mobile App",
+      "proj2_desc": "A cross-platform mobile application for personalized health tracking.",
+      "proj3_title": "E-Commerce Platform",
+      "proj3_cat": "Full Stack",
+      "proj3_desc": "A high-conversion headless e-commerce solution built with Next.js."
+    }
+  },
+  "about": {
+    "title": "We are Codex.",
+    "desc1": "Founded with the mission to build robust, scalable software, we are a team of passionate engineers, designers, and strategists.",
+    "desc2": "We believe in code quality, transparent communication, and delivering products that not only meet business goals but also delight users.",
+    "innovation_title": "Innovation",
+    "innovation_desc": "Pushing boundaries",
+    "reliability_title": "Reliability",
+    "reliability_desc": "Built to last"
+  },
+  "testimonials": {
+    "title": "Client Success",
+    "quotes": {
+      "quote1": "Codex completely transformed our digital presence. The new web app is incredibly fast and our conversion rates have doubled.",
+      "author1": "Jane Doe",
+      "role1": "CEO, TechStart",
+      "quote2": "Working with Codex was a breeze. They handled everything from design to deployment with extreme professionalism.",
+      "author2": "John Smith",
+      "role2": "CTO, Enterprise Solutions",
+      "quote3": "The mobile app they delivered is stunning. The UI is flawless and it performs perfectly across all devices.",
+      "author3": "Sarah Connor",
+      "role3": "Product Manager, Innovate AI"
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about working with us.",
+    "q1": "What is your typical project timeline?",
+    "a1": "Depending on the complexity, a typical MVP takes 8-12 weeks. Enterprise solutions can take 4-6 months to ensure maximum robustness and scalability.",
+    "q2": "Do you offer post-launch support?",
+    "a2": "Yes, we offer comprehensive maintenance and support packages to ensure your software remains secure, updated, and performs optimally.",
+    "q3": "What is your pricing model?",
+    "a3": "We offer both fixed-bid and time-and-materials engagement models, tailored to the specific needs and flexibility requirements of your project."
+  },
+  "contact": {
+    "title": "Let's build something extraordinary together.",
+    "subtitle": "Ready to transform your vision into reality? Send us a message and we'll get back to you within 24 hours.",
+    "form_name": "Name",
+    "form_email": "Email",
+    "form_desc": "Project Description",
+    "form_name_ph": "John Doe",
+    "form_email_ph": "john@example.com",
+    "form_desc_ph": "Tell us about your project...",
+    "submit": "Send Message"
+  },
+  "footer": {
+    "rights": "Codex Software. All rights reserved."
+  }
+}

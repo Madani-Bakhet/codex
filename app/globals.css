@@ -9,6 +9,7 @@
   --color-secondary: var(--secondary);
   --color-foreground: var(--foreground);
   --color-text-muted: var(--text-muted);
+  --font-sans: var(--font-main, var(--font-inter)), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 :root {
@@ -18,6 +19,10 @@
   --secondary: #6A0DAD;
   --foreground: #0D0D12;
   --text-muted: #4A4A5A;
+}
+
+html[dir="rtl"] {
+  --font-space-grotesk: var(--font-main);
 }
 
 .dark {

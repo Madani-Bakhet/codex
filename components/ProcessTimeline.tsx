@@ -2,27 +2,30 @@
 
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
-
-const steps = [
-  {
-    title: "Discovery & Planning",
-    description: "We analyze your requirements and map out the project scope, timelines, and technical architecture.",
-  },
-  {
-    title: "UI/UX Design",
-    description: "Our designers craft intuitive, stunning interfaces that align perfectly with your brand identity.",
-  },
-  {
-    title: "Development",
-    description: "Our engineers build your product using cutting-edge technologies with a focus on scalability and performance.",
-  },
-  {
-    title: "Testing & Launch",
-    description: "Rigorous QA testing ensures a bug-free experience before we successfully deploy to production.",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 export function ProcessTimeline() {
+  const { t } = useTranslation();
+
+  const steps = [
+    {
+      title: t("process.steps.step1_title"),
+      description: t("process.steps.step1_desc"),
+    },
+    {
+      title: t("process.steps.step2_title"),
+      description: t("process.steps.step2_desc"),
+    },
+    {
+      title: t("process.steps.step3_title"),
+      description: t("process.steps.step3_desc"),
+    },
+    {
+      title: t("process.steps.step4_title"),
+      description: t("process.steps.step4_desc"),
+    },
+  ];
+
   return (
     <div className="relative ml-4 md:ml-0 mt-16 md:flex md:justify-between md:pt-8">
       {/* Mobile Line */}

@@ -3,22 +3,25 @@
 import { motion } from "framer-motion";
 import { GlassCard } from "./ui/GlassCard";
 import { Monitor, Smartphone, Cog } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export function ServicesSection() {
+  const { t } = useTranslation();
+
   const services = [
     {
-      title: "Web Development",
-      description: "High-performance web applications built with modern frameworks like Next.js and React.",
+      title: t("services.items.web_title"),
+      description: t("services.items.web_desc"),
       icon: <Monitor className="w-8 h-8 text-primary mb-4" />,
     },
     {
-      title: "Mobile Development",
-      description: "Native and cross-platform mobile experiences that engage and convert users.",
+      title: t("services.items.mobile_title"),
+      description: t("services.items.mobile_desc"),
       icon: <Smartphone className="w-8 h-8 text-secondary mb-4" />,
     },
     {
-      title: "SDLC & DevOps",
-      description: "End-to-end lifecycle management, from ideation to continuous deployment and maintenance.",
+      title: t("services.items.sdlc_title"),
+      description: t("services.items.sdlc_desc"),
       icon: <Cog className="w-8 h-8 text-primary mb-4" />,
     },
   ];
@@ -34,10 +37,10 @@ export function ServicesSection() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-4 font-[family-name:var(--font-space-grotesk)]">
-            Comprehensive Solutions
+            {t("services.title")}
           </h2>
           <p className="text-text-muted max-w-2xl mx-auto">
-            We handle every aspect of the software development lifecycle, delivering robust and scalable software.
+            {t("services.subtitle")}
           </p>
         </motion.div>
 

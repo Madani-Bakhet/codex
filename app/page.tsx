@@ -1,3 +1,5 @@
+"use client";
+
 import { Hero } from "@/components/Hero";
 import { ServicesSection } from "@/components/ServicesSection";
 import { ProcessTimeline } from "@/components/ProcessTimeline";
@@ -8,11 +10,14 @@ import { Marquee } from "@/components/ui/Marquee";
 import { StatCounter } from "@/components/ui/StatCounter";
 import { Button } from "@/components/ui/Button";
 import { Navbar } from "@/components/Navbar";
+import { useTranslation } from "react-i18next";
 
 // Icons for Marquee
 import { Blocks, Braces, Cloud, Database, Layout, Server, Code2 } from "lucide-react";
 
 export default function Home() {
+  const { t } = useTranslation();
+
   const techStack = [
     <Blocks key="1" className="w-16 h-16" />,
     <Braces key="2" className="w-16 h-16" />,
@@ -24,16 +29,16 @@ export default function Home() {
 
   const faqs = [
     {
-      title: "What is your typical project timeline?",
-      content: "Depending on the complexity, a typical MVP takes 8-12 weeks. Enterprise solutions can take 4-6 months to ensure maximum robustness and scalability."
+      title: t("faq.q1"),
+      content: t("faq.a1")
     },
     {
-      title: "Do you offer post-launch support?",
-      content: "Yes, we offer comprehensive maintenance and support packages to ensure your software remains secure, updated, and performs optimally."
+      title: t("faq.q2"),
+      content: t("faq.a2")
     },
     {
-      title: "What is your pricing model?",
-      content: "We offer both fixed-bid and time-and-materials engagement models, tailored to the specific needs and flexibility requirements of your project."
+      title: t("faq.q3"),
+      content: t("faq.a3")
     }
   ];
 
@@ -49,9 +54,9 @@ export default function Home() {
       <section className="py-12 border-y border-foreground/5 bg-surface/50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <StatCounter end={100} suffix="+" label="Projects Delivered" />
-            <StatCounter end={99} suffix="%" label="Client Satisfaction" />
-            <StatCounter end={24} suffix="/7" label="Support Available" />
+            <StatCounter end={100} suffix="+" label={t("stats.projects")} />
+            <StatCounter end={99} suffix="%" label={t("stats.satisfaction")} />
+            <StatCounter end={24} suffix="/7" label={t("stats.support")} />
           </div>
         </div>
       </section>
@@ -60,7 +65,7 @@ export default function Home() {
       <section className="py-8 bg-background border-b border-foreground/5 overflow-hidden">
         <div className="container mx-auto px-4 mb-4 text-center">
           <p className="text-sm font-medium text-text-muted uppercase tracking-widest">
-            Powered By Modern Technology
+            {t("marquee.title")}
           </p>
         </div>
         <Marquee items={techStack} speed={30} />
@@ -76,10 +81,10 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4 font-[family-name:var(--font-space-grotesk)] text-foreground">
-              Our Process
+              {t("process.title")}
             </h2>
             <p className="text-text-muted max-w-2xl mx-auto">
-              A transparent, agile methodology designed to deliver value quickly while minimizing risk.
+              {t("process.subtitle")}
             </p>
           </div>
           <ProcessTimeline />
@@ -91,10 +96,10 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4 font-[family-name:var(--font-space-grotesk)] text-foreground">
-              Featured Work
+              {t("portfolio.title")}
             </h2>
             <p className="text-text-muted max-w-2xl mx-auto">
-              Explore some of the innovative solutions we've crafted for our partners.
+              {t("portfolio.subtitle")}
             </p>
           </div>
           <PortfolioGrid />
@@ -107,22 +112,22 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="md:w-1/2">
               <h2 className="text-3xl md:text-5xl font-bold mb-6 font-[family-name:var(--font-space-grotesk)] text-foreground">
-                We are Codex.
+                {t("about.title")}
               </h2>
               <p className="text-lg text-text-muted mb-6">
-                Founded with the mission to build robust, scalable software, we are a team of passionate engineers, designers, and strategists.
+                {t("about.desc1")}
               </p>
               <p className="text-lg text-text-muted mb-8">
-                We believe in code quality, transparent communication, and delivering products that not only meet business goals but also delight users.
+                {t("about.desc2")}
               </p>
               <div className="flex gap-4">
                 <div className="flex-1 glass-card p-4 text-center">
-                  <h4 className="font-bold text-primary mb-1">Innovation</h4>
-                  <p className="text-sm text-text-muted">Pushing boundaries</p>
+                  <h4 className="font-bold text-primary mb-1">{t("about.innovation_title")}</h4>
+                  <p className="text-sm text-text-muted">{t("about.innovation_desc")}</p>
                 </div>
                 <div className="flex-1 glass-card p-4 text-center">
-                  <h4 className="font-bold text-secondary mb-1">Reliability</h4>
-                  <p className="text-sm text-text-muted">Built to last</p>
+                  <h4 className="font-bold text-secondary mb-1">{t("about.reliability_title")}</h4>
+                  <p className="text-sm text-text-muted">{t("about.reliability_desc")}</p>
                 </div>
               </div>
             </div>
@@ -140,7 +145,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4 font-[family-name:var(--font-space-grotesk)] text-foreground">
-              Client Success
+              {t("testimonials.title")}
             </h2>
           </div>
           <TestimonialSlider />
@@ -152,9 +157,9 @@ export default function Home() {
         <div className="container mx-auto px-4 max-w-3xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4 font-[family-name:var(--font-space-grotesk)] text-foreground">
-              Frequently Asked Questions
+              {t("faq.title")}
             </h2>
-            <p className="text-text-muted">Everything you need to know about working with us.</p>
+            <p className="text-text-muted">{t("faq.subtitle")}</p>
           </div>
           <Accordion items={faqs} />
         </div>
@@ -166,10 +171,10 @@ export default function Home() {
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 font-[family-name:var(--font-space-grotesk)] text-foreground">
-              Let's build something extraordinary together.
+              {t("contact.title")}
             </h2>
             <p className="text-lg text-text-muted max-w-2xl mx-auto">
-              Ready to transform your vision into reality? Send us a message and we'll get back to you within 24 hours.
+              {t("contact.subtitle")}
             </p>
           </div>
           
@@ -177,20 +182,20 @@ export default function Home() {
             <form className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium mb-2 text-foreground">Name</label>
-                  <input type="text" className="w-full h-12 px-4 rounded-md bg-background border border-foreground/10 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors text-foreground" placeholder="John Doe" />
+                  <label className="block text-sm font-medium mb-2 text-foreground">{t("contact.form_name")}</label>
+                  <input type="text" className="w-full h-12 px-4 rounded-md bg-background border border-foreground/10 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors text-foreground" placeholder={t("contact.form_name_ph")} />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2 text-foreground">Email</label>
-                  <input type="email" className="w-full h-12 px-4 rounded-md bg-background border border-foreground/10 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors text-foreground" placeholder="john@example.com" />
+                  <label className="block text-sm font-medium mb-2 text-foreground">{t("contact.form_email")}</label>
+                  <input type="email" className="w-full h-12 px-4 rounded-md bg-background border border-foreground/10 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors text-foreground" placeholder={t("contact.form_email_ph")} />
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-medium mb-2 text-foreground">Project Description</label>
-                <textarea className="w-full h-32 p-4 rounded-md bg-background border border-foreground/10 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors resize-none text-foreground" placeholder="Tell us about your project..."></textarea>
+                <label className="block text-sm font-medium mb-2 text-foreground">{t("contact.form_desc")}</label>
+                <textarea className="w-full h-32 p-4 rounded-md bg-background border border-foreground/10 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors resize-none text-foreground" placeholder={t("contact.form_desc_ph")}></textarea>
               </div>
               <Button variant="primary" size="lg" glow className="w-full">
-                Send Message
+                {t("contact.submit")}
               </Button>
             </form>
           </div>
@@ -199,7 +204,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="py-8 border-t border-foreground/10 text-center text-sm text-text-muted bg-background">
-        <p>© {new Date().getFullYear()} Codex Software. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} {t("footer.rights")}</p>
       </footer>
     </div>
   );

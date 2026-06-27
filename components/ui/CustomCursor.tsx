@@ -72,7 +72,7 @@ export const CustomCursor = () => {
         animate={{
           scale: isHovering ? 1.5 : 1,
           backgroundColor: isHovering ? 'color-mix(in srgb, var(--primary) 80%, transparent)' : 'color-mix(in srgb, var(--primary) 10%, transparent)',
-          borderColor: isHovering ? 'transparent' : 'color-mix(in srgb, var(--primary) 50%, transparent)',
+          borderColor: isHovering ? 'rgba(0, 0, 0, 0)' : 'color-mix(in srgb, var(--primary) 50%, transparent)',
         }}
         transition={{ duration: 0.15 }}
       />

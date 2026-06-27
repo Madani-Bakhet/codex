@@ -3,8 +3,10 @@
 import { motion } from "framer-motion";
 import { Button } from "./ui/Button";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 
 export function Hero() {
+  const { t } = useTranslation();
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Animated Background */}
@@ -34,11 +36,11 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-5xl md:text-7xl font-bold mb-6 tracking-tight font-[family-name:var(--font-space-grotesk)]"
+          className="text-5xl md:text-7xl font-bold mb-6 tracking-tight font-[family-name:var(--font-space-grotesk)] leading-normal md:leading-normal py-2"
         >
-          Building the <br className="hidden md:block" />
+          {t("hero.title1")} <br className="hidden md:block" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-            Future of Software
+            {t("hero.title2")}
           </span>
         </motion.h1>
         
@@ -48,7 +50,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-lg md:text-xl text-text-muted mb-10 max-w-2xl mx-auto"
         >
-          We are a premium software development agency providing top-tier solutions from ideation to deployment.
+          {t("hero.subtitle")}
         </motion.p>
         
         <motion.div
@@ -59,12 +61,12 @@ export function Hero() {
         >
           <Link href="/services">
             <Button variant="primary" size="lg" glow className="w-full sm:w-auto">
-              Explore Our Services
+              {t("hero.explore")}
             </Button>
           </Link>
           <Link href="/contact">
             <Button variant="outline" size="lg" className="w-full sm:w-auto">
-              Let's Talk
+              {t("hero.lets_talk")}
             </Button>
           </Link>
         </motion.div>
