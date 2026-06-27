@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue } from "framer-motion";
 
 export const CustomCursor = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -11,9 +11,8 @@ export const CustomCursor = () => {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  const springConfig = { damping: 25, stiffness: 400 };
-  const cursorXSpring = useSpring(cursorX, springConfig);
-  const cursorYSpring = useSpring(cursorY, springConfig);
+  // Removed the spring configuration to eliminate the artificial delay.
+  // The cursor will now instantly track the mouse pointer.
 
   useEffect(() => {
     // Check if device uses fine pointer (mouse/trackpad)
@@ -62,8 +61,8 @@ export const CustomCursor = () => {
     <motion.div
       className="fixed top-0 left-0 pointer-events-none z-[9999] flex items-center justify-center"
       style={{
-        x: cursorXSpring,
-        y: cursorYSpring,
+        x: cursorX,
+        y: cursorY,
         width: 32,
         height: 32,
       }}
