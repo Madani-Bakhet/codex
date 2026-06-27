@@ -59,16 +59,16 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <Link href="/services">
+          <a href="#services">
             <Button variant="primary" size="lg" glow className="w-full sm:w-auto">
               {t("hero.explore")}
             </Button>
-          </Link>
-          <Link href="/contact">
+          </a>
+          <a href="#contact">
             <Button variant="outline" size="lg" className="w-full sm:w-auto">
               {t("hero.lets_talk")}
             </Button>
-          </Link>
+          </a>
         </motion.div>
       </div>
     </section>

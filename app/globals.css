@@ -21,6 +21,11 @@
   --text-muted: #4A4A5A;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 64px; /* Offset for fixed navbar */
+}
+
 html[dir="rtl"] {
   --font-space-grotesk: var(--font-main);
 }
