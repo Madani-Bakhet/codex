@@ -1,35 +1,54 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { fetchTestimonials, TestimonialData } from "@/context/api";
 
 export function TestimonialSlider() {
-  const { t } = useTranslation();
-
-  const testimonials = [
-    {
-      quote: t("testimonials.quotes.quote1"),
-      author: t("testimonials.quotes.author1"),
-      role: t("testimonials.quotes.role1"),
-    },
-    {
-      quote: t("testimonials.quotes.quote2"),
-      author: t("testimonials.quotes.author2"),
-      role: t("testimonials.quotes.role2"),
-    },
-    {
-      quote: t("testimonials.quotes.quote3"),
-      author: t("testimonials.quotes.author3"),
-      role: t("testimonials.quotes.role3"),
-    },
-  ];
-
+  const { i18n } = useTranslation();
+  const [testimonials, setTestimonials] = useState<TestimonialData[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    fetchTestimonials()
+      .then((data) => {
+        setTestimonials(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error loading testimonials:", err);
+        setError(true);
+        setLoading(false);
+      });
+  }, []);
 
   const next = () => setCurrentIndex((prev) => (prev + 1) % testimonials.length);
   const prev = () => setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+
+  if (loading) {
+    return (
+      <div className="max-w-4xl mx-auto glass-card p-8 md:p-12 text-center animate-pulse">
+        <Quote className="w-12 h-12 text-primary/10 mx-auto mb-6" />
+        <div className="h-6 bg-foreground/10 rounded w-3/4 mx-auto mb-6" />
+        <div className="h-4 bg-foreground/10 rounded w-1/4 mx-auto mb-2" />
+        <div className="h-3 bg-foreground/10 rounded w-1/6 mx-auto" />
+      </div>
+    );
+  }
+
+  if (error || testimonials.length === 0) {
+    return null; // Mute testimonials if backend fails rather than cluttering UI
+  }
+
+  const activeTestimonial = testimonials[currentIndex];
+  const quote = i18n.language === "ar" ? activeTestimonial.quoteAr : activeTestimonial.quoteEn;
+  const author = i18n.language === "ar" ? activeTestimonial.authorAr : activeTestimonial.authorEn;
+  const role = i18n.language === "ar" ? activeTestimonial.roleAr : activeTestimonial.roleEn;
+  const company = i18n.language === "ar" ? activeTestimonial.companyAr : activeTestimonial.companyEn;
 
   return (
     <motion.div 
@@ -50,13 +69,15 @@ export function TestimonialSlider() {
             transition={{ duration: 0.3 }}
           >
             <p className="text-xl md:text-2xl font-medium mb-8 text-foreground">
-              "{testimonials[currentIndex].quote}"
+              "{quote}"
             </p>
             <div>
               <h4 className="font-bold text-lg font-[family-name:var(--font-space-grotesk)] text-foreground">
-                {testimonials[currentIndex].author}
+                {author}
               </h4>
-              <p className="text-primary text-sm">{testimonials[currentIndex].role}</p>
+              <p className="text-primary text-sm">
+                {role}{company ? `, ${company}` : ""}
+              </p>
             </div>
           </motion.div>
         </AnimatePresence>
