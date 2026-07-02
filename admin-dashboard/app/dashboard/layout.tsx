@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import { checkAuth, adminLogout } from "../../context/api";
+import { useTranslation } from "react-i18next";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { 
   Inbox, 
   FolderGit2, 
@@ -21,6 +23,7 @@ import {
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
+  const { t } = useTranslation();
   
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -126,6 +129,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
         {/* Footer Area with user and logout */}
         <div className="p-4 border-t border-foreground/10 bg-surface/10 space-y-4">
+          <LanguageSwitcher />
           <div className="flex items-center gap-3 px-2 py-1">
             <div className="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
               <User className="w-5 h-5" />
@@ -140,7 +144,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             className="w-full h-11 flex items-center justify-center gap-2 rounded-md border border-red-500/20 text-red-400 hover:bg-red-500/10 transition-colors text-sm font-medium cursor-pointer"
           >
             <LogOut className="w-4 h-4" />
-            <span>Exit Dashboard</span>
+            <span>{t('logout')}</span>
           </button>
         </div>
       </aside>

@@ -4,8 +4,11 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { adminLogin } from "../../context/api";
 import { ShieldAlert, KeyRound, Mail, Loader2 } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 export default function LoginPage() {
+  const { t } = useTranslation();
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -36,6 +39,10 @@ export default function LoginPage() {
 
   return (
     <div className="flex-1 flex items-center justify-center min-h-screen px-4 bg-background relative overflow-hidden">
+      <div className="absolute top-4 end-4 z-50">
+        <LanguageSwitcher />
+      </div>
+
       {/* Abstract Glowing Accent Orbs in Background */}
       <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[96px] -z-10" />
       <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[400px] h-[400px] bg-secondary/10 rounded-full blur-[96px] -z-10" />
@@ -47,10 +54,10 @@ export default function LoginPage() {
             <KeyRound className="w-8 h-8" />
           </div>
           <h1 className="text-3xl font-bold font-[family-name:var(--font-space-grotesk)] text-foreground tracking-tight">
-            CODEX ADMIN
+            {t('login_title')}
           </h1>
           <p className="text-text-muted mt-2 text-sm">
-            Authenticate to access agency control panel
+            {t('login_subtitle')}
           </p>
         </div>
 
@@ -66,18 +73,18 @@ export default function LoginPage() {
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-2">
             <label className="block text-sm font-medium text-text-muted">
-              Email Address
+              {t('email_label')}
             </label>
             <div className="relative">
-              <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-text-muted">
+              <span className="absolute inset-y-0 start-0 pl-3.5 rtl:pr-3.5 rtl:pl-0 flex items-center text-text-muted">
                 <Mail className="w-5 h-5" />
               </span>
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full h-12 pl-11 pr-4 rounded-md bg-background border border-foreground/10 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all text-foreground text-sm"
-                placeholder="admin@codex.com"
+                className="w-full h-12 pl-11 pr-4 rtl:pr-11 rtl:pl-4 rounded-md bg-background border border-foreground/10 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all text-foreground text-sm"
+                placeholder={t('email_placeholder')}
                 required
               />
             </div>
@@ -85,18 +92,18 @@ export default function LoginPage() {
 
           <div className="space-y-2">
             <label className="block text-sm font-medium text-text-muted">
-              Password
+              {t('password_label')}
             </label>
             <div className="relative">
-              <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-text-muted">
+              <span className="absolute inset-y-0 start-0 pl-3.5 rtl:pr-3.5 rtl:pl-0 flex items-center text-text-muted">
                 <KeyRound className="w-5 h-5" />
               </span>
               <input
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full h-12 pl-11 pr-4 rounded-md bg-background border border-foreground/10 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all text-foreground text-sm"
-                placeholder="••••••••"
+                className="w-full h-12 pl-11 pr-4 rtl:pr-11 rtl:pl-4 rounded-md bg-background border border-foreground/10 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all text-foreground text-sm"
+                placeholder={t('password_placeholder')}
                 required
               />
             </div>
@@ -110,10 +117,10 @@ export default function LoginPage() {
             {isLoading ? (
               <>
                 <Loader2 className="w-5 h-5 animate-spin" />
-                <span>Verifying credentials...</span>
+                <span>{t('login_loading')}</span>
               </>
             ) : (
-              <span>Access Control Panel</span>
+              <span>{t('login_button')}</span>
             )}
           </button>
         </form>

@@ -1,0 +1,15 @@
+{
+  "dashboard": "لوحة القيادة",
+  "welcome": "مرحباً بك",
+  "settings": "الإعدادات",
+  "profile": "الملف الشخصي",
+  "logout": "تسجيل الخروج",
+  "login_title": "إدارة كودكس",
+  "login_subtitle": "قم بتسجيل الدخول للوصول إلى لوحة التحكم",
+  "email_label": "البريد الإلكتروني",
+  "email_placeholder": "admin@codex.com",
+  "password_label": "كلمة المرور",
+  "password_placeholder": "••••••••",
+  "login_button": "تسجيل الدخول للوحة التحكم",
+  "login_loading": "جاري التحقق من البيانات..."
+}

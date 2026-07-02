@@ -1,0 +1,15 @@
+{
+  "dashboard": "Dashboard",
+  "welcome": "Welcome back",
+  "settings": "Settings",
+  "profile": "Profile",
+  "logout": "Logout",
+  "login_title": "CODEX ADMIN",
+  "login_subtitle": "Authenticate to access agency control panel",
+  "email_label": "Email Address",
+  "email_placeholder": "admin@codex.com",
+  "password_label": "Password",
+  "password_placeholder": "••••••••",
+  "login_button": "Access Control Panel",
+  "login_loading": "Verifying credentials..."
+}
