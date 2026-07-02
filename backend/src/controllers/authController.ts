@@ -19,7 +19,7 @@ const sendTokenResponse = (user: User, statusCode: number, res: Response) => {
     expires: new Date(Date.now() + 24 * 60 * 60 * 1000), // 1 day
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
-    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax' as const
+    sameSite: (process.env.NODE_ENV === 'production' ? 'none' : 'lax') as 'none' | 'lax'
   };
 
   res
@@ -69,7 +69,7 @@ export const logout = async (req: Request, res: Response): Promise<void> => {
       expires: new Date(Date.now() + 10 * 1000),
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
-      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax' as const
+      sameSite: (process.env.NODE_ENV === 'production' ? 'none' : 'lax') as 'none' | 'lax'
     });
 
     res.status(200).json({ success: true, message: 'Logged out successfully' });
